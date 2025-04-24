@@ -1,12 +1,18 @@
+import { createContext, useState } from 'react'
 import './App.css'
+import ChildA from './components/ChildA';
 
+const UserContext = createContext();
 function App() {
-
+  const [user, setUser] = useState({name: "Lazy Land"});
   return (
     <>
-      <p>Hello World!</p>
+      <UserContext.Provider value={user}>
+        <ChildA />
+      </UserContext.Provider>
     </>
   )
 }
 
-export default App
+export default App;
+export {UserContext};
